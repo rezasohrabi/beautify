@@ -1,0 +1,23 @@
+{
+  "name": "beautify",
+  "version": "1.0.0",
+  "description": "ts patterns",
+  "main": "./dist/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./dist/main.js",
+    "format": "prettier --write ."
+  },
+  "repository": "git+https://github.com/rezasohrabi/beautify.git",
+  "author": "rezasohrabi <rezasohrabi1995@yahoo.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rezasohrabi/beautify/issues"
+  },
+  "homepage": "https://github.com/rezasohrabi/beautify#readme",
+  "dependencies": {
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.4"
+  }
+}
