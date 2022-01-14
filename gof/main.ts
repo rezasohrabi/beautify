@@ -5,6 +5,7 @@
 /// <reference path="behavioral/template/TemplatePattern.ts" />
 /// <reference path="behavioral/command/CommandPattern.ts" />
 /// <reference path="behavioral/observer/ObserverPattern.ts" />
+/// <reference path="behavioral/mediator/MediatorPattern.ts" />
 
 namespace App {
   //const memento = new MementoPattern();
@@ -13,5 +14,6 @@ namespace App {
   //const strategyPattern = new StrategyPattern();
   //const templatePattern = new TemplatePattern();
   //const commandPattern = new CommandPattern();
-  const observerPattern = new ObserverPattern();
+  //const observerPattern = new ObserverPattern();
+  new Mediator.MediatorPattern();
 }
