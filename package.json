@@ -5,7 +5,8 @@
   "scripts": {
     "compile": "tsc && node ./dist/main.js",
     "start": "nodemon -e ts  --exec \"npm run compile\"",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test": "jest"
   },
   "repository": "git+https://github.com/rezasohrabi/beautify.git",
   "author": "rezasohrabi <rezasohrabi1995@yahoo.com>",
@@ -15,8 +16,15 @@
   },
   "homepage": "https://github.com/rezasohrabi/beautify#readme",
   "dependencies": {
+    "jest": "^27.5.1",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
     "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "babel-jest": "^27.5.1"
   }
 }
