@@ -31,4 +31,10 @@ function reverse3(str) {
   return reversed;
 }
 
-module.exports = reverse3;
+function reverse4(str) {
+  if (!isString(str)) throw new Error('illegal argument');
+
+  return str.split('').reduce((reversed, char) => char + reversed);
+}
+
+module.exports = reverse4;
