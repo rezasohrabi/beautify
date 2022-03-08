@@ -20,8 +20,8 @@ test('reverse() should throw illegal argument error', () => {
   expect(() => reverse()).toThrowError(Error('illegal argument'));
 });
 
-test('reverse(56) should return "65"', () => {
-  expect(reverse(56)).toEqual('65');
+test('reverse(56) should return illegal argument error', () => {
+  expect(() => reverse(56)).toThrowError(Error('illegal argument'));
 });
 
 test('reverse("this is test   ") should return "   tset si siht"', () => {
