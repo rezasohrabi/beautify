@@ -16,4 +16,10 @@ function reverse(str) {
   return reversed;
 }
 
-module.exports = reverse;
+function reverse2(str) {
+  if (!isString(str)) throw new Error('illegal argument');
+
+  return str.split('').reverse('').join('');
+}
+
+module.exports = reverse2;
