@@ -37,4 +37,13 @@ function reverse4(str) {
   return str.split('').reduce((reversed, char) => char + reversed);
 }
 
+function reverse5(str) {
+  if (!isString(str)) throw new Error('illegal argument');
+
+  let reversed = '';
+  for (let i = 0; i >= 0; i--) reversed += str.charAt(i);
+
+  return reversed;
+}
+
 module.exports = reverse4;
