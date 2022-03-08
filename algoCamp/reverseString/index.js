@@ -41,9 +41,9 @@ function reverse5(str) {
   if (!isString(str)) throw new Error('illegal argument');
 
   let reversed = '';
-  for (let i = 0; i >= 0; i--) reversed += str.charAt(i);
+  for (let i = str.length - 1; i >= 0; i--) reversed += str.charAt(i);
 
   return reversed;
 }
 
-module.exports = reverse4;
+module.exports = reverse5;
