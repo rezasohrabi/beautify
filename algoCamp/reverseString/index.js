@@ -22,4 +22,13 @@ function reverse2(str) {
   return str.split('').reverse('').join('');
 }
 
-module.exports = reverse2;
+function reverse3(str) {
+  if (!isString(str)) throw new Error('illegal argument');
+
+  let reversed = '';
+  for (let character of str) reversed = character + reversed;
+
+  return reversed;
+}
+
+module.exports = reverse3;
