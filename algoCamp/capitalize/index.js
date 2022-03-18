@@ -6,4 +6,10 @@ function capitalize(str) {
   return words.join(' ');
 }
 
-module.exports = capitalize;
+function capitalize2(str) {
+  return str
+    .toLowerCase()
+    .replace(/(^\w{1})|(\s+\w{1})/g, (ch) => ch.toUpperCase());
+}
+
+module.exports = capitalize2;
