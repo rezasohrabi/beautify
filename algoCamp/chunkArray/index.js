@@ -31,4 +31,12 @@ function chunk2(array, size) {
   return chunked;
 }
 
-module.exports = chunk2;
+function chunk3(array, size) {
+  const chunked = [];
+  for (let i = 0; i < array.length; i += size) {
+    chunked.push(array.slice(i, i + size));
+  }
+  return chunked;
+}
+
+module.exports = chunk3;
