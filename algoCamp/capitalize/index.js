@@ -12,4 +12,18 @@ function capitalize2(str) {
     .replace(/(^\w{1})|(\s+\w{1})/g, (ch) => ch.toUpperCase());
 }
 
-module.exports = capitalize2;
+function capitalize3(str) {
+  let capitalized = str[0].toUpperCase();
+
+  for (let i = 1; i < str.length; i++) {
+    if (str[i - 1] === ' ') {
+      capitalized += str[i].toUpperCase();
+    } else {
+      capitalized += str[i].toLowerCase();
+    }
+  }
+
+  return capitalized;
+}
+
+module.exports = capitalize3;
