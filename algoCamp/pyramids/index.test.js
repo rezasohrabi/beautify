@@ -14,13 +14,12 @@ afterEach(() => {
 
 test('pyramids(1) should print a one level pyramids', () => {
   pyramids(1);
-  expect(console.log.mack.calls[0][0]).toEqual('#');
+  expect(console.log.mock.calls[0][0]).toEqual('#');
   expect(console.log.mock.calls.length).toEqual(1);
 });
 
 test('pyramids(2) should print a two level pyramids', () => {
   pyramids(2);
-  console.log(console.log.mock.calls);
   expect(console.log.mock.calls[0][0]).toEqual(' # ');
   expect(console.log.mock.calls[1][0]).toEqual('###');
   expect(console.log.mock.calls.length).toEqual(2);
