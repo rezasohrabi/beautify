@@ -16,4 +16,12 @@ function fibonacci1(n) {
   return result[n];
 }
 
-module.exports = fibonacci1;
+function fibonacci2(n) {
+  if (n < 2) {
+    return n;
+  }
+
+  return fibonacci2(n - 1) + fibonacci2(n - 2);
+}
+
+module.exports = fibonacci2;
