@@ -16,12 +16,26 @@ function fibonacci1(n) {
   return result[n];
 }
 
-function fibonacci2(n) {
+function memoize(fn) {
+  const cache = {};
+  return function (...args) {
+    if (cache[args]) {
+      return cache[args];
+    }
+    const result = fn.apply(this, args);
+    cache[args] = result;
+    return result;
+  };
+}
+
+const memoizedFibo = memoize(slowFibonacci);
+
+function slowFibonacci(n) {
   if (n < 2) {
     return n;
   }
 
-  return fibonacci2(n - 1) + fibonacci2(n - 2);
+  return memoizedFibo(n - 1) + memoizedFibo(n - 2);
 }
 
-module.exports = fibonacci2;
+module.exports = memoizedFibo;
