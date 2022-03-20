@@ -4,11 +4,15 @@ class Queue {
   }
 
   enqueue(item) {
-    this.items.unshift(item);
+    this.items.push(item);
   }
 
   dequeue() {
-    return this.items.pop();
+    return this.items.shift();
+  }
+
+  peek() {
+    return this.items[0];
   }
 }
 
