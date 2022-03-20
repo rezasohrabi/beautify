@@ -15,3 +15,16 @@ test('Stack should have a pop method', () => {
 test('Stack should have a peek method', () => {
   expect(typeof Stack.prototype.peek).toEqual('function');
 });
+
+test('Stack should push and pop and peek items correctly', () => {
+  const stack = new Stack();
+  stack.push(1);
+  stack.push(2);
+  stack.push(3);
+  expect(stack.pop()).toEqual(3);
+  expect(stack.pop()).toEqual(2);
+  expect(stack.peek()).toEqual(1);
+  expect(stack.pop()).toEqual(1);
+
+  expect(stack.pop()).toEqual(undefined);
+});
