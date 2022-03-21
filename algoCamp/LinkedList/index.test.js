@@ -35,3 +35,20 @@ test('LinkedList.size() should return correct number of items in list', () => {
   list.addFirst(3);
   expect(list.size()).toEqual(3);
 });
+
+test('LinkedList.getFirst() should return first node', () => {
+  const list = new LinkedList();
+  list.addFirst(3);
+  list.addFirst(89);
+  expect(list.getFirst().value).toEqual(89);
+  list.addFirst(100);
+  expect(list.getFirst().value).toEqual(100);
+});
+
+test('LinkedList.getLast() should return last node', () => {
+  const list = new LinkedList();
+  list.addFirst(300);
+  list.addFirst(500);
+  list.addFirst(600);
+  expect(list.getLast()).toEqual({ value: 300, next: null });
+});

@@ -24,6 +24,14 @@ class LinkedList {
     this._size++;
   }
 
+  getFirst() {
+    return this.first;
+  }
+
+  getLast() {
+    return this.last;
+  }
+
   size() {
     return this._size;
   }
