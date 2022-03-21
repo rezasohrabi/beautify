@@ -64,3 +64,17 @@ test('LinkedList.clear() method should remove all nodes', () => {
   expect(list.getFirst()).toEqual(null);
   expect(list.getLast()).toEqual(null);
 });
+
+test('LinkedList.removeFirst() method should remove first node', () => {
+  const list = new LinkedList();
+  list.addFirst(300);
+  list.addFirst(500);
+  list.addFirst(600);
+  list.removeFirst();
+  expect(list.size()).toEqual(2);
+  expect(list.getFirst().value).toEqual(500);
+  list.removeFirst();
+  list.removeFirst();
+  expect(list.getFirst()).toEqual(null);
+  expect(list.size()).toEqual(0);
+});

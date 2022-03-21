@@ -24,6 +24,15 @@ class LinkedList {
     this._size++;
   }
 
+  removeFirst() {
+    if (!this.first) {
+      return;
+    }
+
+    this.first = this.first.next;
+    this._size--;
+  }
+
   getFirst() {
     return this.first;
   }
