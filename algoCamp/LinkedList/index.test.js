@@ -18,3 +18,11 @@ test('Node should has property value and next ', () => {
   expect(node1.value).toEqual('node one');
   expect(node1.next).toEqual(node2);
 });
+
+test('LinkedList.addFirst() method should add correct value to the start of list', () => {
+  const list = new LinkedList();
+  list.addFirst(5);
+  expect(list.first.value).toEqual(5);
+  list.addFirst(8);
+  expect(list.first.value).toEqual(8);
+});
