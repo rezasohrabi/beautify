@@ -52,3 +52,15 @@ test('LinkedList.getLast() should return last node', () => {
   list.addFirst(600);
   expect(list.getLast()).toEqual({ value: 300, next: null });
 });
+
+test('LinkedList.clear() method should remove all nodes', () => {
+  const list = new LinkedList();
+  list.addFirst(300);
+  list.addFirst(500);
+  list.addFirst(600);
+  expect(list.size()).toEqual(3);
+  list.clear();
+  expect(list.size()).toEqual(0);
+  expect(list.getFirst()).toEqual(null);
+  expect(list.getLast()).toEqual(null);
+});
