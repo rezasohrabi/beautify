@@ -26,3 +26,12 @@ test('LinkedList.addFirst() method should add correct value to the start of list
   list.addFirst(8);
   expect(list.first.value).toEqual(8);
 });
+
+test('LinkedList.size() should return correct number of items in list', () => {
+  const list = new LinkedList();
+  expect(list.size()).toEqual(0);
+  list.addFirst(1);
+  list.addFirst(2);
+  list.addFirst(3);
+  expect(list.size()).toEqual(3);
+});
