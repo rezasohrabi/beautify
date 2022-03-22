@@ -166,3 +166,50 @@ describe('LinkedList.getAt(index)', () => {
     expect(list.getAt(10)).toEqual(null);
   });
 });
+
+describe('LinkedList.removeAt(index)', () => {
+  test('should return null when list is empty', () => {
+    const list = new LinkedList();
+    expect(list.removeAt(0)).toEqual(null);
+  });
+  test('should remove list first node', () => {
+    const list = new LinkedList();
+    list.addLast(30);
+    list.addLast(50);
+    list.addLast(80);
+    list.removeAt(0);
+    expect(list.getFirst().value).toEqual(50);
+    list.removeAt(0);
+    expect(list.getFirst().value).toEqual(80);
+    list.removeAt(0);
+    expect(list.getFirst()).toEqual(null);
+  });
+  test('should remove list last node', () => {
+    const list = new LinkedList();
+    list.addLast(10);
+    list.addLast(20);
+    list.addLast(30);
+    list.removeAt(2);
+    expect(list.getLast().value).toEqual(20);
+    expect(list.size()).toEqual(2);
+    list.removeAt(1);
+    expect(list.getLast().value).toEqual(10);
+    expect(list.size()).toEqual(1);
+    list.removeAt(0);
+    expect(list.getLast()).toEqual(null);
+    expect(list.size()).toEqual(0);
+  });
+  test('should remove node in middle of list at specified index', () => {
+    const list = new LinkedList();
+    list.addLast(10);
+    list.addLast(20);
+    list.addLast(30);
+    list.addLast(40);
+    list.addLast(50);
+    expect(list.getAt(3).value).toEqual(40);
+    expect(list.size()).toEqual(5);
+    list.removeAt(3);
+    expect(list.getAt(3).value).toEqual(50);
+    expect(list.size()).toEqual(4);
+  });
+});
