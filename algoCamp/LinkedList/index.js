@@ -65,13 +65,19 @@ class LinkedList {
   }
 
   getAt(index) {
+    if (index < 0 || index >= this.size()) {
+      return null;
+    }
+
     let counter = 0;
     let current = this.first;
-    while (counter !== index) {
+    while (current) {
+      if (counter === index) {
+        return current;
+      }
       current = current.next;
       counter++;
     }
-    return current;
   }
 
   getFirst() {
