@@ -33,6 +33,26 @@ class LinkedList {
     this._size--;
   }
 
+  removeLast() {
+    if (!this.first) {
+      return;
+    }
+
+    if (this.size() === 1) {
+      this.first = this.last = null;
+    } else {
+      let current = this.first;
+      let previous;
+      while (current.next) {
+        previous = current;
+        current = current.next;
+      }
+      previous.next = null;
+      this.last = previous;
+    }
+    this._size--;
+  }
+
   getFirst() {
     return this.first;
   }
