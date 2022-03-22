@@ -113,3 +113,22 @@ describe('LinkedList.removeLast()', () => {
     expect(list.size()).toEqual(0);
   });
 });
+
+test('LinkedList.addLast() method should add node to last', () => {
+  const list = new LinkedList();
+  list.addLast(10);
+  list.addLast(20);
+  list.addLast(30);
+  expect(list.getLast()).toEqual(30);
+  expect(list.size()).toEqual(3);
+  list.removeLast();
+  expect(list.getLast()).toEqual(20);
+  expect(list.size()).toEqual(2);
+  list.removeLast();
+  expect(list.getLast()).toEqual(10);
+  expect(list.getFirst()).toEqual(10);
+  expect(list.size()).toEqual(1);
+  list.removeLast();
+  expect(list.getLast()).toEqual(null);
+  expect(list.size()).toEqual(0);
+});
