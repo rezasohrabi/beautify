@@ -213,3 +213,60 @@ describe('LinkedList.removeAt(index)', () => {
     expect(list.size()).toEqual(4);
   });
 });
+
+describe('LinkedList.addAt(index,value)', () => {
+  test('should add node when list is empty', () => {
+    const list = new LinkedList();
+    expect(list.size()).toEqual(0);
+    list.addAt(0, 30);
+    expect(list.getFirst().value).toEqual(30);
+    expect(list.getLast().value).toEqual(30);
+    expect(list.size()).toEqual(1);
+  });
+  test('should throw error when index is less than zero', () => {
+    const list = new LinkedList();
+    expect(() => list.addAt(-10, 999)).toThrowError();
+  });
+  test('should throw error when index is greater than list size', () => {
+    const list = new LinkedList();
+    list.addFirst(10);
+    list.addFirst(9);
+    list.addLast(12);
+    list.addFirst(6);
+    expect(() => list.addAt(10, 999)).toThrowError();
+  });
+  test('should add node to middle of list correctly', () => {
+    const list = new LinkedList();
+    list.addLast(10);
+    list.addFirst(9);
+    list.addLast(12);
+    list.addFirst(6);
+    list.addLast(20);
+    list.addFirst(1);
+    expect(list.getAt(4).value).toEqual(12);
+    expect(list.size()).toEqual(6);
+    list.addAt(4, 999);
+    expect(list.getAt(4).value).toEqual(999);
+    expect(list.size()).toEqual(7);
+  });
+  test('should add node to the start of list correctly', () => {
+    const list = new LinkedList();
+    list.addLast(10);
+    list.addLast(12);
+    list.addLast(20);
+    expect(list.size()).toEqual(3);
+    list.addAt(0, 999);
+    expect(list.getFirst().value).toEqual(999);
+    expect(list.size()).toEqual(4);
+  });
+  test('should add node to the end of list correctly', () => {
+    const list = new LinkedList();
+    list.addLast(10);
+    list.addLast(12);
+    list.addLast(20);
+    expect(list.size()).toEqual(3);
+    list.addAt(3, 999);
+    expect(list.getLast().value).toEqual(999);
+    expect(list.size()).toEqual(4);
+  });
+});
