@@ -108,6 +108,35 @@ class LinkedList {
     this._size--;
   }
 
+  addAt(index, value) {
+    const node = new Node(value);
+    if (index < 0 || index > this.size()) {
+      throw new Error('illegal argument');
+    }
+    if (!this.first) {
+      this.first = this.last = node;
+    }
+    if (index === 0) {
+      node.next = this.first;
+      this.first = node;
+    } else if (index === this.size()) {
+      this.last.next = node;
+      this.last = node;
+    } else {
+      let current = this.first;
+      let previous;
+      let counter = 0;
+      while (counter !== index) {
+        previous = current;
+        current = current.next;
+        counter++;
+      }
+      node.next = current;
+      previous.next = node;
+    }
+    this._size++;
+  }
+
   getFirst() {
     return this.first;
   }
