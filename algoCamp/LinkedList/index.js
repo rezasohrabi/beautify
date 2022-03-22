@@ -33,6 +33,17 @@ class LinkedList {
     this._size--;
   }
 
+  addLast(value) {
+    const node = new Node(value);
+    if (!this.first) {
+      this.first = this.last = node;
+    } else {
+      this.last.next = node;
+      this.last = node;
+    }
+    this._size++;
+  }
+
   removeLast() {
     if (!this.first) {
       return;
