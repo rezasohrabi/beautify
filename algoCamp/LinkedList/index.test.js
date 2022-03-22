@@ -283,3 +283,16 @@ test('LinkedList.forEach() should iterate through list', () => {
   expect(list.getAt(1).value).toEqual(120);
   expect(list.getAt(2).value).toEqual(130);
 });
+
+test('LinkedList support for ... of loop', () => {
+  const list = new LinkedList();
+  list.addLast(30);
+  list.addLast(50);
+  list.addLast(70);
+  for (let node of list) {
+    node.value *= 10;
+  }
+  expect(list.getAt(0).value).toEqual(300);
+  expect(list.getAt(1).value).toEqual(500);
+  expect(list.getAt(2).value).toEqual(700);
+});

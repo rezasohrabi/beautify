@@ -147,6 +147,14 @@ class LinkedList {
     }
   }
 
+  *[Symbol.iterator]() {
+    let current = this.first;
+    while (current) {
+      yield current;
+      current = current.next;
+    }
+  }
+
   getFirst() {
     return this.first;
   }
