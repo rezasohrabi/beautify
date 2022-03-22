@@ -137,6 +137,14 @@ class LinkedList {
     this._size++;
   }
 
+  forEach(fn) {
+    let current = this.first;
+    while (current) {
+      fn(current);
+      current = current.next;
+    }
+  }
+
   getFirst() {
     return this.first;
   }

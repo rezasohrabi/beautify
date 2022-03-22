@@ -270,3 +270,16 @@ describe('LinkedList.addAt(index,value)', () => {
     expect(list.size()).toEqual(4);
   });
 });
+
+test('LinkedList.forEach() should iterate through list', () => {
+  const list = new LinkedList();
+  list.addLast(10);
+  list.addLast(20);
+  list.addLast(30);
+  list.forEach((node) => {
+    node.value += 100;
+  });
+  expect(list.getAt(0).value).toEqual(110);
+  expect(list.getAt(1).value).toEqual(120);
+  expect(list.getAt(2).value).toEqual(130);
+});
