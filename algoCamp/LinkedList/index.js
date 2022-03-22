@@ -84,6 +84,30 @@ class LinkedList {
     }
   }
 
+  removeAt(index) {
+    if (index < 0 || index >= this.size() || !this.first) {
+      return null;
+    }
+
+    if (index === 0) {
+      return this.removeFirst();
+    }
+    if (index === this.size() - 1) {
+      return this.removeLast();
+    }
+
+    let counter = 0;
+    let current = this.first;
+    let previous;
+    while (counter !== index) {
+      previous = current;
+      current = current.next;
+      counter++;
+    }
+    previous.next = current.next;
+    this._size--;
+  }
+
   getFirst() {
     return this.first;
   }
