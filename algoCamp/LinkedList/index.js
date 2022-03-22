@@ -29,7 +29,11 @@ class LinkedList {
       return;
     }
 
-    this.first = this.first.next;
+    if (this.size() === 1) {
+      this.first = this.last = null;
+    } else {
+      this.first = this.first.next;
+    }
     this._size--;
   }
 
