@@ -139,9 +139,11 @@ class LinkedList {
 
   forEach(fn) {
     let current = this.first;
+    let index = 0;
     while (current) {
-      fn(current);
+      fn(current, index);
       current = current.next;
+      index++;
     }
   }
 
