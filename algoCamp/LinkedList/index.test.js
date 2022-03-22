@@ -132,3 +132,17 @@ test('LinkedList.addLast() method should add node to last', () => {
   expect(list.getLast()).toEqual(null);
   expect(list.size()).toEqual(0);
 });
+
+test('LinkedList.getAt(index) should return node in correct index', () => {
+  const list = new LinkedList();
+  list.addLast(30);
+  list.addLast(50);
+  list.addLast(80);
+  list.addLast(90);
+  list.addLast(100);
+  expect(list.getAt(4).value).toEqual(100);
+  expect(list.getAt(3).value).toEqual(90);
+  expect(list.getAt(2).value).toEqual(80);
+  expect(list.getAt(1).value).toEqual(50);
+  expect(list.getAt(0).value).toEqual(30);
+});
