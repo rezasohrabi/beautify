@@ -78,3 +78,38 @@ test('LinkedList.removeFirst() method should remove first node', () => {
   expect(list.getFirst()).toEqual(null);
   expect(list.size()).toEqual(0);
 });
+
+describe('LinkedList.removeLast()', () => {
+  test('should remove last node when list length is 1', () => {
+    const list = new LinkedList();
+    list.addFirst(1);
+    list.removeLast();
+    expect(list.getFirst()).toEqual(null);
+    expect(list.getLast()).toEqual(null);
+    expect(list.size()).toEqual(0);
+  });
+  test('should remove last node when list length is 2', () => {
+    const list = new LinkedList();
+    list.addFirst(1);
+    list.addFirst(2);
+    list.removeLast();
+    expect(list.getFirst().value).toEqual(2);
+    expect(list.getLast().value).toEqual(2);
+    expect(list.size()).toEqual(1);
+  });
+  test('should remove last node when list length is 3', () => {
+    const list = new LinkedList();
+    list.addFirst(1);
+    list.addFirst(2);
+    list.addFirst(3);
+    list.removeLast();
+    expect(list.getLast().value).toEqual(2);
+    expect(list.size()).toEqual(2);
+    list.removeLast();
+    expect(list.getLast().value).toEqual(3);
+    expect(list.size()).toEqual(1);
+    list.removeLast();
+    expect(list.getLast()).toEqual(null);
+    expect(list.size()).toEqual(0);
+  });
+});
