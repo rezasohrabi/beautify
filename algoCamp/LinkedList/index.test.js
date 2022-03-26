@@ -296,3 +296,34 @@ test('LinkedList support for ... of loop', () => {
   expect(list.getAt(1).value).toEqual(500);
   expect(list.getAt(2).value).toEqual(700);
 });
+
+describe('LinkedList.middle()', () => {
+  test('should return first node when size is two', () => {
+    const list = new LinkedList();
+    list.addLast(10);
+    list.addLast(20);
+    expect(list.middle().value).toEqual(10);
+  });
+  test('should return first node when size is one', () => {
+    const list = new LinkedList();
+    list.addLast(10);
+    expect(list.middle().value).toEqual(10);
+  });
+  test('should return last node of first part when size is even', () => {
+    const list = new LinkedList();
+    list.addLast(10);
+    list.addLast(20);
+    list.addLast(30);
+    list.addLast(40);
+    expect(list.middle().value).toEqual(20);
+  });
+  test('should return middle when size is odd', () => {
+    const list = new LinkedList();
+    list.addLast(10);
+    list.addLast(20);
+    list.addLast(30);
+    list.addLast(40);
+    list.addLast(50);
+    expect(list.middle().value).toEqual(30);
+  });
+});
