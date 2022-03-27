@@ -327,3 +327,32 @@ describe('LinkedList.middle()', () => {
     expect(list.middle().value).toEqual(30);
   });
 });
+test('should return false if linkedlist is not circular', () => {
+  const list = new LinkedList();
+  list.addLast(10);
+  list.addLast(20);
+  list.addLast(30);
+  list.addLast(40);
+  list.addLast(50);
+  expect(list.isCircular()).toEqual(false);
+});
+test('should return true if linkedlist is circular', () => {
+  const list = new LinkedList();
+  list.addLast(10);
+  list.addLast(20);
+  list.addLast(30);
+  list.addLast(40);
+  list.addLast(50);
+  list.makeCircular();
+  expect(list.isCircular()).toEqual(true);
+});
+
+test('LinkedList.fromLast(2) return value of 40', () => {
+  const list = new LinkedList();
+  list.addLast(10);
+  list.addLast(20);
+  list.addLast(30);
+  list.addLast(40);
+  list.addLast(50);
+  expect(list.fromLast(2).value).toEqual(40);
+});

@@ -167,6 +167,19 @@ class LinkedList {
     return slow;
   }
 
+  fromLast(k) {
+    let a = this.first;
+    let b = this.first;
+    for (let i = 0; i < k - 1; i++) {
+      b = b.next;
+    }
+    while (b.next) {
+      b = b.next;
+      a = a.next;
+    }
+    return a;
+  }
+
   getFirst() {
     return this.first;
   }
@@ -182,6 +195,14 @@ class LinkedList {
   clear() {
     this.first = this.last = null;
     this._size = 0;
+  }
+
+  isCircular() {
+    return this.last.next === this.first;
+  }
+
+  makeCircular() {
+    this.last.next = this.first;
   }
 }
 
