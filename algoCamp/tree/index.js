@@ -35,6 +35,22 @@ class Tree {
       fn(node);
     }
   }
+
+  levelWidth() {
+    let arr = ['s', this.root];
+    let widths = [];
+    while (arr.length > 1) {
+      const node = arr.shift();
+      if (node === 's') {
+        widths.push(0);
+        arr.push('s');
+      } else {
+        widths[widths.length - 1]++;
+        arr.push(...node.children);
+      }
+    }
+    return widths;
+  }
 }
 
 module.exports = {
