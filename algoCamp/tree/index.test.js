@@ -57,4 +57,22 @@ describe('Tree', () => {
     });
     expect(letters).toEqual(['a', 'b', 'c', 'd', 'e', 'g', 'h', 'i']);
   });
+  test('should traverse depth-first', () => {
+    const letters = [];
+    const tree = new Tree();
+    tree.root = new Node('a');
+    tree.root.add('b');
+    tree.root.add('c');
+    tree.root.add('d');
+    tree.root.children[0].add('y');
+    tree.root.children[0].children[0].add('h');
+    tree.root.children[1].add('e');
+    tree.root.children[2].add('g');
+    tree.root.children[2].add('h');
+    tree.root.children[2].add('i');
+    tree.traverseDepthFirst((node) => {
+      letters.push(node.value);
+    });
+    expect(letters).toEqual(['a', 'b', 'y', 'h', 'c', 'e', 'd', 'g', 'h', 'i']);
+  });
 });
