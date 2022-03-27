@@ -9,7 +9,7 @@ class Node {
   }
 
   remove(value) {
-    this.children = this.children.filter(node.value !== value);
+    this.children = this.children.filter((node) => node.value !== value);
   }
 }
 
