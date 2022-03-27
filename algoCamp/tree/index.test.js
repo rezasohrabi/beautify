@@ -35,3 +35,10 @@ describe('Node', () => {
     expect(node.children[3].value).toEqual('child five');
   });
 });
+
+describe('Tree', () => {
+  test('should start with null root', () => {
+    const tree = new Tree();
+    expect(tree.root).toEqual(null);
+  });
+});
