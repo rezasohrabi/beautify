@@ -41,4 +41,20 @@ describe('Tree', () => {
     const tree = new Tree();
     expect(tree.root).toEqual(null);
   });
+  test('should traverse breadth-first', () => {
+    const letters = [];
+    const tree = new Tree();
+    tree.root = new Node('a');
+    tree.root.add('b');
+    tree.root.add('c');
+    tree.root.add('d');
+    tree.root.children[1].add('e');
+    tree.root.children[2].add('g');
+    tree.root.children[2].add('h');
+    tree.root.children[2].add('i');
+    tree.traverseBreadthFirst((node) => {
+      letters.push(node.value);
+    });
+    expect(letters).toEqual(['a', 'b', 'c', 'd', 'e', 'g', 'h', 'i']);
+  });
 });

@@ -17,6 +17,15 @@ class Tree {
   constructor() {
     this.root = null;
   }
+
+  traverseBreadthFirst(fn) {
+    const arr = [this.root];
+    while (arr.length) {
+      const node = arr.shift();
+      arr.push(...node.children);
+      fn(node);
+    }
+  }
 }
 
 module.exports = {
