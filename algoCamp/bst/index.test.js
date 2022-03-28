@@ -1,4 +1,7 @@
-const BinarySearchTree = require('./index');
+const bst = require('./index');
+const BinarySearchTree = bst.BinarySearchTree;
+const Node = bst.Node;
+
 describe('SearchBinaryTree', () => {
   test('should be a class', () => {
     expect(typeof BinarySearchTree.prototype.constructor).toEqual('function');
@@ -71,5 +74,26 @@ describe('SearchBinaryTree', () => {
     expect(bst.contains(999)).toEqual(false);
     expect(bst.contains(3)).toEqual(false);
     expect(bst.contains(400)).toEqual(false);
+  });
+  test('isBinarySearchTree() should return true if tree is bst', () => {
+    const bst = new BinarySearchTree();
+    bst.insert(1);
+    bst.insert(-39);
+    bst.insert(40);
+    bst.insert(39);
+    bst.insert(9);
+    bst.insert(88);
+    expect(bst.isBinarySearchTree()).toEqual(true);
+  });
+  test('isBinarySearchTree() should return false if tree is not bst', () => {
+    const bst = new BinarySearchTree();
+    bst.insert(1);
+    bst.insert(-39);
+    bst.insert(40);
+    bst.insert(39);
+    bst.insert(9);
+    bst.insert(88);
+    bst.root.leftChild = new Node(999);
+    expect(bst.isBinarySearchTree()).toEqual(false);
   });
 });

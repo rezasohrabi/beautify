@@ -65,6 +65,31 @@ class BinarySearchTree {
 
     return root;
   }
+
+  isBinarySearchTree() {
+    return this._isBinarySearchTree(this.root);
+  }
+  _isBinarySearchTree(root, min = null, max = null) {
+    if (min !== null && root.value < min) {
+      return false;
+    }
+    if (max !== null && root.value > max) {
+      return false;
+    }
+    if (
+      root.leftChild &&
+      !this._isBinarySearchTree(root.leftChild, min, root.value)
+    ) {
+      return false;
+    }
+    if (
+      root.rightChild &&
+      !this._isBinarySearchTree(root.rightChild, root.value, max)
+    ) {
+      return false;
+    }
+    return true;
+  }
 }
 
-module.exports = BinarySearchTree;
+module.exports = { BinarySearchTree, Node };
