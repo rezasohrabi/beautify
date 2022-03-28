@@ -31,6 +31,20 @@ class BinarySearchTree {
     }
   }
 
+  containsIterative(value) {
+    let current = this.root;
+    while (current) {
+      if (value < current.value) {
+        current = current.leftChild;
+      } else if (current > current.value) {
+        current = current.rightChild;
+      } else {
+        return true;
+      }
+    }
+    return false;
+  }
+
   insert(value) {
     if (this.root === null) {
       this.root = new Node(value);
